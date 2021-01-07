@@ -1,0 +1,10 @@
+[package]
+name = "ghost_hunter_core"
+version = "0.1.0"
+authors = ["gjf2a <ferrer@hendrix.edu>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+pc-keyboard = "0.5.0"
