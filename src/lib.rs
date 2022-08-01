@@ -1,8 +1,7 @@
-#![feature(const_generics)]
 #![allow(incomplete_features)]
 #![cfg_attr(not(test), no_std)]
 
-use core::ops::Sub;
+use core::ops::{Add,Sub};
 use pc_keyboard::{DecodedKey, KeyCode};
 
 const UPDATE_FREQUENCY: usize = 3;
@@ -88,6 +87,14 @@ pub enum Cell {
 #[derive(Debug,Copy,Clone,Eq,PartialEq)]
 pub struct Position<const WIDTH: usize, const HEIGHT: usize> {
     col: i16, row: i16
+}
+
+impl <const WIDTH: usize, const HEIGHT: usize> Add for Position<WIDTH,HEIGHT> {
+    type Output = Position<WIDTH,HEIGHT>;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        Position {col: self.col + rhs.col, row: self.row + rhs.row}
+    }
 }
 
 impl <const WIDTH: usize, const HEIGHT: usize> Sub for Position<WIDTH,HEIGHT> {
