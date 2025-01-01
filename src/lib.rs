@@ -1,4 +1,3 @@
-#![allow(incomplete_features)]
 #![cfg_attr(not(test), no_std)]
 
 use core::ops::{Add,Sub};
